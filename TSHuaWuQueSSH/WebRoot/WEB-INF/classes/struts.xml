@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置为开发模式:默认值为false，改为true就是以后一旦就改这个文件中的配置就不用去重启tomcat -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 把扩展名配置为action -->
+    <constant name="struts.action.extension" value="action" />
+    <!-- 把主题配置为simple -->
+    <constant name="struts.ui.theme" value="simple" />
+	
+	<include file="struts-myInterceptor.xml"/>
+
+    
+	<package name="default" namespace="/" extends="myInterceptor">
+	 	<!-- 用户管理 -->
+		<action name="user_*" class="userAction" method="{1}">
+		<!-- 	<result name="list">/WEB-INF/jsp/userAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/userAction/saveUI.jsp</result>
+		 -->	
+		    <result name="toIndex">/WEB-INF/jsp/userAction/user_index.jsp</result>
+		    <result name="loginUI">/WEB-INF/jsp/userAction/login.jsp</result>
+		<!--     <result name="toList" type="redirectAction">userInfo_list</result>
+		    <result name="user_info">/WEB-INF/jsp/userAction/detail.jsp</result>
+		     <result type="stream" name="updatePwd">
+			   <param name="contentType">text/html</param>
+			   <param name="inputName">inputStream</param>
+			</result> -->
+		</action>
+		
+		
+		<action name="page_*" class="pageInfoAction" method="{1}">
+			<result name="homeUI">/WEB-INF/jsp/pageAction/home.jsp</result>
+			<result name="about_hwq">/WEB-INF/jsp/pageAction/hwq_jj.jsp</result>
+			<result name="hwq_jj" type="redirectAction">page_aboutHwq</result>
+			<result name="hwq_qywh">/WEB-INF/jsp/pageAction/hwq_qywh.jsp</result>			
+			<result name="hwq_lyzz">/WEB-INF/jsp/pageAction/hwq_lyzz.jsp</result>
+			
+			<result name="about_hyjj">/WEB-INF/jsp/pageAction/hyjj_hs.jsp</result>
+		    <result name="hyjj_hs" type="redirectAction">page_aboutHyjj</result>
+			<result name="hyjj_hc">/WEB-INF/jsp/pageAction/hyjj_hc.jsp</result>
+			<result name="hyjj_hh">/WEB-INF/jsp/pageAction/hyjj_hh.jsp</result>
+			<result name="hyjj_hw">/WEB-INF/jsp/pageAction/hyjj_hw.jsp</result>
+			<result name="hyjj_hd">/WEB-INF/jsp/pageAction/hyjj_hd.jsp</result>
+		    
+		    <result name="about_hyqy">/WEB-INF/jsp/pageAction/hyqy_xhyhzs.jsp</result>
+		    <result name="hyqy_xhyhzs" type="redirectAction">page_aboutHyqy</result>
+			<result name="hyqy_hydq">/WEB-INF/jsp/pageAction/hyqy_hydq.jsp</result>
+			<result name="hyqy_xhyaq">/WEB-INF/jsp/pageAction/hyqy_xhyaq.jsp</result>
+			
+		    <result name="about_lzyhy">/WEB-INF/jsp/pageAction/lzyhy_jjrz.jsp</result>
+		    <result name="lzyhy_jjrz" type="redirectAction">page_aboutLzyhy</result>
+		    <result name="lzyhy_ybjrz">/WEB-INF/jsp/pageAction/lzyhy_ybjrz.jsp</result>
+			<result name="lzyhy_jdrz">/WEB-INF/jsp/pageAction/lzyhy_jdrz.jsp</result>
+			
+			<result name="about_rlzy">/WEB-INF/jsp/pageAction/about_rlzy.jsp</result>
+			<result name="about_lxwm">/WEB-INF/jsp/pageAction/about_lxwm.jsp</result>
+
+		</action>
+		
+		 <!--角色管理 
+		<action name="role_*" class="roleAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/roleAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/roleAction/saveUI.jsp</result>
+			<result name="setPrivilegeUI">/WEB-INF/jsp/roleAction/setPrivilegeUI.jsp</result>
+			<result name="toList" type="redirectAction">role_list</result>
+		</action>
+	
+	
+		<action name="image_upload" class="com.web.omb.view.action.ImageUploadAction">
+		    <result type="stream">
+			   <param name="contentType">text/html</param>
+			   <param name="inputName">inputStream</param>
+			</result>
+			<result name="toList" type="redirectAction">menu_list</result>
+		</action>
+		-->
+	
+	</package>
+</struts>
