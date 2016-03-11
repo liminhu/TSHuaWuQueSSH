@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+     <!-- struts配置文件中的package name属性不是解决重名问题的，而是用来实现继承的 -->
+    <package name="myInterceptor" extends="struts-default" namespace="/" >
+           <!-- 自定义一个拦截器 -->
+	    <interceptors>    <!--拦截器的名称-->            <!--拦截器的类地址-->
+	        <interceptor name="LoginCheck" class="com.tangshan.hwq.util.LoginCheckInterceptor"/>
+	        <interceptor-stack name="myStack"><!--声明一个拦截器栈-->
+	            <interceptor-ref name="LoginCheck"></interceptor-ref>   <!-- 便于向拦截器传值 -->
+	            <interceptor-ref name="defaultStack"></interceptor-ref>
+	        </interceptor-stack>
+	    </interceptors>
+	
+<!-- 	    <default-interceptor-ref name="myStack"></default-interceptor-ref> -->
+	    
+	    <global-results>
+	        <result name="login">/login.jsp</result>
+	    </global-results>  
+    </package>
+</struts>

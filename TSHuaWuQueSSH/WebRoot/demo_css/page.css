@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+.page{
+	font-size: 0px;
+	text-align: center;
+	margin: 50px 0 20px;
+}
+.page a{
+	font-size: 12px;
+	color: #ccc;
+	display: inline-block;
+	_display:inline;
+	padding: 0 5px;
+	border: 1px solid #ccc;
+	margin-right: 5px;
+	line-height: 23px;
+}
+.page a:hover,.page a.active{
+	background: #b90909;
+	font-weight: bold;
+	color: #fff;
+	border: 1px solid #b90909;
+}

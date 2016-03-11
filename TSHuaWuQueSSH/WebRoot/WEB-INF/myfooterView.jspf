@@ -1,0 +1,97 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
+<!-- 在线联系浮动层 -->
+<div class="float">
+	<div class="float-small">
+		<a href="javascript:;"><img src="./demo_images/floot/float-small.png" alt=""></a>
+	</div>
+	<div class="float-big">
+		<div class="float-top"></div>
+		<div class="float-mid">
+			<p align="center" class="marT10"><img width="106" src="./demo_images/floot/ewm.jpg" alt=""></p>
+			<ul>
+				<li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=527280479&site=qq&menu=yes">在线客服1</a></li>
+			</ul>
+		</div>
+		<div class="float-bot" align="right"><a href="javascript:;" class="close"></a></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	// 浮动框
+	$(".float-small").click(function() {
+		$(".float-big").stop().animate({width:[158,"easeInOutExpo"]}, 600);
+		$(this).stop().animate({width:0}, 400);
+	});
+	$(".float-bot a.close").click(function(){
+		$(".float-big").stop().animate({width:[0,"easeInOutExpo"]}, 600,function(){
+			$(".float-small").stop().animate({width:33}, 400);
+		});
+
+	})
+</script>
+
+<div class="footer-d">
+<div class="Into clear">
+	<div class="w960">
+		<div class="into-content ">
+			<b>
+			<img src="./demo_images/floot/${page.thirdBlockImg}.jpg" / style="float: left; margin-left: 1px; margin-right: 0px; margin-top: 100px; margin-bottom: 0px">
+           	</b>
+           	<p class="into-font"><b><font size="5" face="方正舒体" color="#000000">这是一些新闻的链接... 
+			</font></b> <br/>&nbsp;&nbsp;
+			<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd" target="_blank">
+			#年宵闹春#大吉大利的年宵花</a><br/>
+		<!--	<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=238122623&idx=1&sn=f5ec57d0ef7a45e777bcb4366ed4125b#rd" target="_blank">您家里有这样的风水宝物吗?</a><br/>-->
+			<a class="into-an" href="http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd" target="_blank">
+			LEARN MORE</a></p>
+        </div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="fot-link">
+   <div class="fot-links">
+     <ul>
+     <s:iterator value="#application.topNavigationList" status="st">
+     	<li style="width: 60px; margin-right:80px;"><a href="${navLink}?navEnglishName=${navEnglishName}"><p class="p1">${navChineseName}</p></a></li>
+     </s:iterator>
+     </ul>
+   </div>
+  </div>
+</div>
+
+<div class="footer-d">
+ <div class="footer-d1">
+   <p align="center" style="color:#fff"><a href="${page.recordLinkAddress}" target="_blank" style="color:#fff">${page.recordInfo}</a>&nbsp;&nbsp;&nbsp;Copyright&copy; 1995-2016 花无缺花艺空间设计室 All Rights Reserved</p>
+ </div>
+</div>
+
+</div>
+
+<script>
+  $(".tpqh li").click(function(){
+    var i = $(this).index();
+    $(this).addClass("cur").siblings("li").removeClass("cur");
+    $(".ser-box").eq(i).removeClass("hide").siblings(".ser-box").addClass("hide");
+  })
+  $(".prefecture li").click(function(){
+    var i = $(this).index();
+    $(this).addClass("region").siblings("li").removeClass("region");
+    $(".productbox").eq(i).removeClass("hide").siblings(".productbox").addClass("hide");
+  })
+  $(".productbox li").hover(function(){
+    $(this).find(".line").stop().animate({"width":"219px"},300);
+  },function(){
+    $(this).find(".line").stop().animate({"width":"0"},300);
+  })
+  jQuery("#slideBox1").slide({mainCell:".bd ul",autoPlay:true});
+  jQuery("#slideBox2").slide({mainCell:".bd ul",autoPlay:true});
+  jQuery("#slideBox3").slide({mainCell:".bd ul",autoPlay:true});
+  jQuery(".sidebox").slide({mainCell:".bd ul",effect:"top",autoPlay:true});
+  jQuery(".xxb").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true,vis:4});
+  jQuery("#productbox1").slide({titCell:".hd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:1});
+  jQuery("#productbox0").slide({titCell:".hd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:1});
+  jQuery(".multipleColumn").slide({titCell:".hd ul",mainCell:".bd .ulWrap",autoPage:true,effect:"leftLoop",autoPlay:true,vis:3});
+  jQuery(".banner").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true});
+</script>

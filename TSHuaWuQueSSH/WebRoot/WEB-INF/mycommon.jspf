@@ -1,0 +1,59 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
+<div class="header">
+	<div class="w1000">
+		<div class="top clear">
+			<div class="logo fle">
+				<img src="./demo_images/index/logo.jpg" alt=""></div>
+			<div class="right fri">
+				<div class="phone fle">
+					<img src="./demo_images/index/tb1.png" alt=""></div>
+				<div class="con fri">
+					<p class="p2">${page.telephoneNum}</p>
+					<p class="p2">${page.mobilePhoneNum}</p>
+					<p class="p1">QQ: ${page.qqPhoneNum}</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="w1000">
+			<ul class="clear">
+
+<s:iterator value="#application.topNavigationList" status="st">
+         <li class="tops">
+			<div class="tops">
+					<a href="${navLink}?navEnglishName=${navEnglishName}">
+					<p class="p1">${navChineseName}</p>
+					</a>
+			</div>
+			<s:if test='%{isExistChildNav()}'>
+			  <div class="subnav" style="width: 400px">
+					<div class="subnav_box">
+						<dl class="clear">
+					<s:iterator value="navigationInfos" status="child"> 
+							<dt><a href="${navLink}?navEnglishName=${navEnglishName}">${navChineseName}</a></dt>
+					</s:iterator>
+						</dl>
+						<div class="img">
+							<img width="241" height="99" src="./demo_images/index/5.jpg" alt="${navChineseName}">
+						</div>
+					</div>
+				</div>
+			</s:if>
+		</li>
+</s:iterator> 	
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function(){
+		$(".menu li").hover(function(){
+			$(".menu li").find(".subnav").stop().slideUp()
+            $(this).find(".subnav").stop().slideDown()//.parent().siblings().find(".subnav").slideUp();
+        },function(){
+            $(".menu li").find(".subnav").stop().slideUp()//.parent().siblings().find(".subnav").slideDown();
+        });
+	});
+</script> 
