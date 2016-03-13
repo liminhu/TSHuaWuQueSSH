@@ -19,13 +19,21 @@ public class NavigationInfo implements java.io.Serializable {
 	private String navLink;
 	private String navSmallImag;
 	private Timestamp lastUpdateTime;
-	private Set navigationInfos = new HashSet(0);
+	private Set<NavigationInfo> navigationInfos = new HashSet(0);
 	private Set detailInfos = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
 	public NavigationInfo() {
+	}
+	
+	
+	public boolean isExistChildNav(){
+		if(navigationInfos.size()>0){
+			return true;
+		}
+		return false;
 	}
 
 	/** minimal constructor */
@@ -49,7 +57,7 @@ public class NavigationInfo implements java.io.Serializable {
 	/** full constructor */
 	public NavigationInfo(NavigationInfo navigationInfo, String navChineseName,
 			String navEnglishName, String navLink, String navSmallImag,
-			Timestamp lastUpdateTime, Set navigationInfos, Set detailInfos) {
+			Timestamp lastUpdateTime, Set<NavigationInfo> navigationInfos, Set detailInfos) {
 		this.navigationInfo = navigationInfo;
 		this.navChineseName = navChineseName;
 		this.navEnglishName = navEnglishName;
@@ -118,11 +126,11 @@ public class NavigationInfo implements java.io.Serializable {
 		this.lastUpdateTime = lastUpdateTime;
 	}
 
-	public Set getNavigationInfos() {
+	public Set<NavigationInfo> getNavigationInfos() {
 		return this.navigationInfos;
 	}
 
-	public void setNavigationInfos(Set navigationInfos) {
+	public void setNavigationInfos(Set<NavigationInfo> navigationInfos) {
 		this.navigationInfos = navigationInfos;
 	}
 

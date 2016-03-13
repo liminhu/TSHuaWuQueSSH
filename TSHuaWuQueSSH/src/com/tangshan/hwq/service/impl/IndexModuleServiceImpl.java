@@ -18,7 +18,7 @@ public class IndexModuleServiceImpl extends DaoSupportImpl<IndexModuleInfo> impl
 	public List<IndexModuleInfo> findListByModuleEnglishName(
 			String moduleEnglishName) {
 		return  (List<IndexModuleInfo>)getSession().createQuery(//
-				"FROM IndexModuleInfo u WHERE u.moduleEnglishName=?")//
+				"FROM IndexModuleInfo u WHERE u.navEnglishName like ?")//
 				.setParameter(0, moduleEnglishName).list();
 	}
 	

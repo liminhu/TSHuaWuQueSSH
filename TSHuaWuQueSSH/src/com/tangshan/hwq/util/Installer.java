@@ -13,9 +13,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tangshan.hwq.domain.DetailInfo;
+import com.tangshan.hwq.domain.HumanResInfo;
 import com.tangshan.hwq.domain.IndexModuleInfo;
 import com.tangshan.hwq.domain.NavigationInfo;
 import com.tangshan.hwq.domain.PageInfo;
+import com.tangshan.hwq.domain.WechatInfo;
+import com.tangshan.hwq.service.HumanResService;
 import com.tangshan.hwq.service.IndexModuleService;
 import com.tangshan.hwq.service.NavigationService;
 import com.tangshan.hwq.service.PageInfoService;
@@ -34,6 +37,8 @@ public class Installer {
 	@Resource
 	protected NavigationService navService;
 	
+	@Resource
+	protected HumanResService humanResService;
 	
 	private void testPageTable(Session session){
 		Timestamp time=new Timestamp(Calendar.getInstance().getTimeInMillis());
@@ -44,7 +49,7 @@ public class Installer {
 		page.setTelephoneNum("0315-2336628");
 		page.setMobilePhoneNum("150 2768 8080");
 		page.setQqPhoneNum("527280479");
-		page.setFirstBlockImgs("1.jpg;2.jpg;3.jpg");
+		page.setFirstBlockImgs("1.jpg,2.jpg,3.jpg");
 		page.setSecondBlockImg("4.jpg");
 		page.setThirdBlockImg("5.jpg");
 		page.setRecordInfo("冀ICP备16003210号");
@@ -194,13 +199,13 @@ public class Installer {
 		nav=navService.findNavByEnglishName("hyjj_hs");
 		DetailInfo detail4=new DetailInfo(nav, "42.jpg", 9, "66.jpg;67.jpg;68.jpg;69.jpg;70.jpg;71.jpg;72.jpg;73.jpg;74.jpg","hyjj_hs",time,0);
 		nav=navService.findNavByEnglishName("hyjj_hc");
-		DetailInfo detail5=new DetailInfo(nav, "42.jpg", 0, null,"hyjj_hc",time,0);
+		DetailInfo detail5=new DetailInfo(nav, "42.jpg", 6, "102.jpg;103.jpg;104.jpg;105.jpg;106.jpg;107.jpg","hyjj_hc",time,0);
 		nav=navService.findNavByEnglishName("hyjj_hh");
-		DetailInfo detail6=new DetailInfo(nav, "42.jpg", 0, null,"hyjj_hh",time,0);
+		DetailInfo detail6=new DetailInfo(nav, "42.jpg", 9, "108.jpg;109.jpg;110.jpg;111.jpg;112.jpg;113.jpg;114.jpg;115.jpg;116.jpg","hyjj_hh",time,0);
 		nav=navService.findNavByEnglishName("hyjj_hw");
-		DetailInfo detail7=new DetailInfo(nav, "42.jpg", 0, null, "hyjj_hw",time,0);
+		DetailInfo detail7=new DetailInfo(nav, "42.jpg", 8, "117.jpg;118.jpg;119.jpg;120.jpg;121.jpg;122.jpg;123.jpg;124.jpg", "hyjj_hw",time,0);
 		nav=navService.findNavByEnglishName("hyjj_hd");
-		DetailInfo detail8=new DetailInfo(nav, "42.jpg", 0, null,"hyjj_hd",time,0);
+		DetailInfo detail8=new DetailInfo(nav, "42.jpg", 6, "125.jpg;126.jpg;127.jpg;128.jpg;129.jpg;130.jpg","hyjj_hd",time,0);
 		
 		nav=navService.findNavByEnglishName("hyqy_xhyhzs");
 		DetailInfo detail9=new DetailInfo(nav, "43.jpg", 3, "75.jpg;76.jpg;77.jpg","hyqy_xhyhzs",time,0);
@@ -213,10 +218,10 @@ public class Installer {
 		DetailInfo detail_12=new DetailInfo(nav, "44.jpg", 7, "95.jpg;96.jpg;97.jpg;98.jpg;99.jpg;100.jpg;101.jpg;", "lzyhy_jjrz",time,0);
 
 		nav=navService.findNavByEnglishName("lzyhy_ybjrz");
-		DetailInfo detail_13=new DetailInfo(nav, "44.jpg", 0, null,"lzyhy_ybjrz",time, 0);
+		DetailInfo detail_13=new DetailInfo(nav, "44.jpg", 8, "131.jpg;132.jpg;133.jpg;134.jpg;135.jpg;136.jpg;137.jpg;138.jpg","lzyhy_ybjrz",time, 0);
 		
 		nav=navService.findNavByEnglishName("lzyhy_jdrz");
-		DetailInfo detail_14=new DetailInfo(nav, "44.jpg", 0, null, "lzyhy_jdrz",time, 0);
+		DetailInfo detail_14=new DetailInfo(nav, "44.jpg", 9, "139.jpg;140.jpg;141.jpg;142.jpg;143.jpg;144.jpg;145.jpg;146.jpg;147.jpg", "lzyhy_jdrz",time, 0);
 		
 		session.save(detail1);
 		session.save(detail2);
@@ -235,13 +240,39 @@ public class Installer {
 		session.flush();
 	}
 	
+	private void testHumanResTable(Session session){
+		HumanResInfo humanResInfo1=new HumanResInfo("驾驶员", "面议", "高中及以上", "负责公司货物运送，清点数量，以及车辆的日常保养和清洁。", "1：男性，熟悉唐山市路况，驾龄三年以上。2：无不良驾驶违章记录，具有较强的安全意识。", "8：00--18：00", "0315——2336628");
+		HumanResInfo humanResInfo2=new HumanResInfo("花艺师", "面议", "中专及以上学历", "鲜花日常护理，花束花盒设计，店面销售。", "有花店工作经验，能独立完成花束，插花工作，有自创新思想文字功底好。", "8：00--18：00", "0315——2336628");
+		session.save(humanResInfo1);
+		session.save(humanResInfo2);
+	}
+	
+	private void testWechatTable(Session session){
+		Timestamp time=new Timestamp(Calendar.getInstance().getTimeInMillis());
+		WechatInfo weInfo1=new WechatInfo("#年宵闹春#大吉大利的年宵花1 ", "http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd", time, time, 0);
+		WechatInfo weInfo2=new WechatInfo("#年宵闹春#大吉大利的年宵花2 ", "http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd", time, time, 0);
+		WechatInfo weInfo3=new WechatInfo("#年宵闹春#大吉大利的年宵花 3", "http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd", time, time, 0);
+		WechatInfo weInfo4=new WechatInfo("#年宵闹春#大吉大利的年宵花 4", "http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd", time, time, 0);
+		WechatInfo weInfo5=new WechatInfo("#年宵闹春#大吉大利的年宵花 5", "http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd", time, time, 0);
+		WechatInfo weInfo6=new WechatInfo("#年宵闹春#大吉大利的年宵花 6", "http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd", time, time, 0);
+		session.save(weInfo1);
+		session.save(weInfo2);
+		session.save(weInfo3);
+		session.save(weInfo4);
+		session.save(weInfo5);
+		session.save(weInfo6);
+	}
+	
+	
 	@Transactional
 	public void install() {
 		Session session = sessionFactory.getCurrentSession();
 	   //testPageTable(session);
 	   //testNavTable(session);
 	   //testIndexModuleTable(session);
-	//	testDetailTable(session);
+		//testDetailTable(session);
+		//testHumanResTable(session);
+		testWechatTable(session);
 	//	List<IndexModuleInfo> list=indexService.findListByModuleEnglishName("1");
 	//	System.out.println(list.size());
 		

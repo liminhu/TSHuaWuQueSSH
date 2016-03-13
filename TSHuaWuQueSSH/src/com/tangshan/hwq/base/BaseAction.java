@@ -8,11 +8,17 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.tangshan.hwq.domain.UserInfo;
+import com.tangshan.hwq.domain.WechatInfo;
 import com.tangshan.hwq.service.DetailService;
+import com.tangshan.hwq.service.HumanResService;
 import com.tangshan.hwq.service.IndexModuleService;
 import com.tangshan.hwq.service.NavigationService;
 import com.tangshan.hwq.service.PageInfoService;
 import com.tangshan.hwq.service.UserService;
+import com.tangshan.hwq.service.WechatService;
+import com.tangshan.hwq.service.impl.WechatServiceImpl;
+import com.tangshan.hwq.util.PageBean;
+import com.tangshan.hwq.util.QueryHelper;
 
 @SuppressWarnings("unchecked")
 public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
@@ -49,7 +55,14 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	
 	@Resource
     protected DetailService detailService;
-    
+
+	
+	@Resource
+	protected HumanResService humanResService;
+	
+	
+	@Resource
+    protected WechatService wechatService;
     
 	/**
 	 * 获取当前登录的用户
@@ -63,7 +76,7 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	// ============== 分页用的参数 =============
 
 	protected int pageNum = 1; // 当前页
-	protected int pageSize = 8; // 每页显示多少条记录
+	protected int pageSize = 5; // 每页显示多少条记录
 
 	public int getPageNum() {
 		return pageNum;

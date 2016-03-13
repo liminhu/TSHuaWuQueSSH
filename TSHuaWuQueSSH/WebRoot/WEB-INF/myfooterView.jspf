@@ -36,15 +36,39 @@
 	<div class="w960">
 		<div class="into-content ">
 			<b>
-			<img src="./demo_images/floot/${page.thirdBlockImg}.jpg" / style="float: left; margin-left: 1px; margin-right: 0px; margin-top: 100px; margin-bottom: 0px">
+			<img src="./demo_images/floot/${page.thirdBlockImg}" / style="float: left; margin-left: 1px; margin-right: 0px; margin-top: 100px; margin-bottom: 0px">
            	</b>
            	<p class="into-font"><b><font size="5" face="方正舒体" color="#000000">这是一些新闻的链接... 
-			</font></b> <br/>&nbsp;&nbsp;
-			<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd" target="_blank">
-			#年宵闹春#大吉大利的年宵花</a><br/>
-		<!--	<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=238122623&idx=1&sn=f5ec57d0ef7a45e777bcb4366ed4125b#rd" target="_blank">您家里有这样的风水宝物吗?</a><br/>-->
-			<a class="into-an" href="http://mp.weixin.qq.com/s?__biz=MjM5NTUxMzUwMw==&mid=416563675&idx=1&sn=94d698be1623dcfd472b4ff8d23de2d2#rd" target="_blank">
-			LEARN MORE</a></p>
+			</font></b> <br/><br/> &nbsp;&nbsp;
+			
+        <s:iterator value="recordList" status="st" id="record">
+			<a href="${link}" target="_blank"  style="font-weight: bolder; color: #000;">${title}</a><br/>
+		</s:iterator>	
+			
+<div style="float: right;">			
+	总共${pageCount}页
+	  <a href="page_gethomeUI.action?currentPage=1" style="font-weight: bolder; color: red;">首页</a>	
+ <s:if test="currentPage==1">
+	    当前第1页
+	     <s:if test="pageCount>1">
+	      <s:a href="page_gethomeUI.action?pageNum=%{currentPage+1}"  style="font-weight: bolder; color: red;" >下一页</s:a>
+	         
+	     </s:if>
+        </s:if>
+	  <s:elseif test="currentPage==pageCount">
+	      <s:if test="pageCount>1">
+	         <s:a href="page_gethomeUI.action?pageNum=%{currentPage-1}"  style="font-weight: bolder; color: red;">上一页</s:a>
+	     </s:if>
+        当前第${pageNum}页		
+	  </s:elseif>
+	  <s:else>
+	      <s:a href="page_gethomeUI.action?pageNum=%{currentPage-1}"  style="font-weight: bolder; color: red;">上一页</s:a>
+              当前第${pageNum}页
+        <s:a href="page_gethomeUI.action?pageNum=%{currentPage+1}"  style="font-weight: bolder; color: red;">下一页</s:a>
+	  </s:else>
+     
+	</div>
+	
         </div>
 	</div>
 </div>

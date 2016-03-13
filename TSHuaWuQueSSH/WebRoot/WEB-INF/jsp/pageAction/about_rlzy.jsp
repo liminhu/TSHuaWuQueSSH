@@ -31,27 +31,17 @@
 <div class="inner-main clear">
             <div class="main-con w1002 hr clear">
 
-                                <div class="div" >
-                    <div class="div1"><p>职位 : 驾驶员</p></div>
-                    <div class="div2"><p>月薪:面议   学历:高中及以上</p></div>
-                    <div class="div3">
-                        <!-- <p class="p1">岗位职责 </p> -->
-                        <p class="p2">
-                         <p>岗位职责：负责公司货物运送，清点数量，以及车辆的日常保养和清洁。</p><p>任职资格：1：男性，熟悉唐山市路况，驾龄三年以上。2：无不良驾驶违章记录，具有较强的安全意识。</p><p>工作时间：8：00--18：00</p><p>联系电话：0315——2336628</p><p><br/></p>                    
-                     
+         <s:iterator status="st" value="#list" id="name">  	
+                  <div class="div" >
+                    <div class="div1"><p>职位 : ${position}</p></div>
+                    <div class="div2"><p>月薪: ${monthSalary}</p></div>
+                    <div class="div2"><p>学历: ${educationBackground}</p></div>
+                    <div class="div3"><p class="p2">
+                         <p>岗位职责：${responsibility}<br/><br/>任职资格：${qualifications}</p></div>
+                    <div class="div2"><p>工作时间：${workTime}</p><p>联系电话：${connectTelephone}</p>                    
                  </div>
              </div>
-                             <div class="div" >
-                    <div class="div1"><p>职位 : 花艺师</p></div>
-                    <div class="div2"><p>月薪:面议   学历:中专及以上学历</p></div>
-                    <div class="div3">
-                        <!-- <p class="p1">岗位职责 </p> -->
-                        <p class="p2">
-                         <p>岗位职责：鲜花日常护理，花束花盒设计，店面销售。<br/>任职资格：有花店工作经验，能独立完成花束，插花工作，有自创新思想文字功底好。<br/>工作时间：8:00--18:00</p><p>联系电话：0315——2337728</p>                    
-                   
-                 </div>
-             </div>
-             
+         </s:iterator>    
          </div>
 
      </div>

@@ -4,7 +4,7 @@
 	<div class="w1000">
 		<div class="top clear">
 			<div class="logo fle">
-				<img src="./demo_images/index/logo.jpg" alt=""></div>
+				<img src="./demo_images/index/${page.logo}" alt=""></div>
 			<div class="right fri">
 				<div class="phone fle">
 					<img src="./demo_images/index/tb1.png" alt=""></div>
@@ -35,7 +35,7 @@
 					</s:iterator>
 						</dl>
 						<div class="img">
-							<img width="241" height="99" src="./demo_images/index/5.jpg" alt="${navChineseName}">
+							<img width="241" height="99" src="./demo_images/index/${navSmallImag}" alt="${navChineseName}">
 						</div>
 					</div>
 				</div>

@@ -12,14 +12,14 @@
 			<ul class="picList" style="width: 11384px; position: relative; overflow: hidden; left: -8538px; margin: 0px; padding: 0px">
 			     <s:generator val="#application.page.firstBlockImgs" separator="," id="firstImgs"> </s:generator>  
                   <s:iterator status="st" value="#request.firstImgs" id="name">   
-                    <li style="float: left; width: 1423px; background: url('demo_images/index/<s:property value="name"/>.jpg') no-repeat 50% 0%">
+                    <li style="float: left; width: 1423px; background: url('demo_images/index/<s:property value="name"/>') no-repeat 50% 0%">
 				        <a target="_blank" href="index.jsp"></a>
 			  		</li>
                   </s:iterator>
                   
                   <s:generator val="#page.firstBlockImgs" separator="," id="firstImgs"> </s:generator>  
                   <s:iterator status="st" value="#request.firstImgs" id="name">   
-                    <li style="float: left; width: 1423px; background: url('demo_images/index/<s:property value="name"/>.jpg') no-repeat 50% 0%">
+                    <li style="float: left; width: 1423px; background: url('demo_images/index/<s:property value="name"/>') no-repeat 50% 0%">
 				        <a target="_blank" href="index.jsp"></a>
 			  		</li>
                   </s:iterator>
@@ -61,7 +61,7 @@
 							<div class="bd">
 							<ul>
                               <li style="display: none;">
-                              <img src="./demo_images/index/${page.secondBlockImg}.jpg"></li> 
+                              <img src="./demo_images/index/${page.secondBlockImg}"></li> 
 							</ul>
 						</div>
 					</div>
@@ -77,7 +77,7 @@
  <s:iterator status="st" value="#list1" id="name">  						
 						<li style="float: left; width: 234px; padding: 0px" class="clone">
 						<a href="${imageLink}?navEnglishName=${navEnglishName}">
-						<img src="./demo_images/index/1/${image}.jpg" width="238" height="170" alt=""></a>
+						<img src="./demo_images/index/1/${image}" width="238" height="170" alt=""></a>
           				<div class="bjbg">
 							<p class="bjm">	<a href="${imageLink}?navEnglishName=${navEnglishName}">${moduleChineseName}</a></p>
 							<p class="xxnr"><a href="${imageLink}?navEnglishName=${navEnglishName}">${introduce}</a></div>
@@ -116,7 +116,7 @@
 	 <s:iterator status="st" value="#list2" id="name">				
 					<li>
 					<a href="${imageLink}?navEnglishName=${navEnglishName}">
-             		<img src="./demo_images/index/2/${image}.jpg" width="221" height="173"/>
+             		<img src="./demo_images/index/2/${image}" width="221" height="173"/>
              			<p>${introduce}</p>
              		</a>
              		</li>
@@ -126,7 +126,7 @@
 				 <s:iterator status="st" value="#list2" id="name">				
 					<li>
 					<a href="${imageLink}?navEnglishName=${navEnglishName}">
-             		<img src="./demo_images/index/2/${image}.jpg" width="221" height="173"/>
+             		<img src="./demo_images/index/2/${image}" width="221" height="173"/>
              			<p>${introduce}</p>
              		</a>
              		</li>
@@ -136,7 +136,7 @@
 				 <s:iterator status="st" value="#list2" id="name">				
 					<li>
 					<a href="${imageLink}?navEnglishName=${navEnglishName}">
-             		<img src="./demo_images/index/2/${image}.jpg" width="221" height="173"/>
+             		<img src="./demo_images/index/2/${image}" width="221" height="173"/>
              			<p>${introduce}</p>
              		</a>
              		</li>
@@ -153,21 +153,21 @@
 				<ul class="clear clone" style="float: left; width: 940px">
 			<s:iterator status="st" value="#list3" id="name">				
 					<li><a href="${imageLink}?navEnglishName=${navEnglishName}">
-             		<img src="./demo_images/index/3/${image}.jpg" width="235" height="167">
+             		<img src="./demo_images/index/3/${image}" width="235" height="167">
              		<p>${introduce}</p></a></li>
 			</s:iterator>
 				</ul>
 				<ul class="clear" style="float: left; width: 940px">
 			<s:iterator status="st" value="#list3" id="name">				
 					<li><a href="${imageLink}?navEnglishName=${navEnglishName}">
-             		<img src="./demo_images/index/3/${image}.jpg" width="235" height="167">
+             		<img src="./demo_images/index/3/${image}" width="235" height="167">
              		<p>${introduce}</p></a></li>
 			</s:iterator>
 				</ul>
 				<ul class="clear clone" style="float: left; width: 940px">
 			<s:iterator status="st" value="#list3" id="name">				
 					<li><a href="${imageLink}?navEnglishName=${navEnglishName}">
-             		<img src="./demo_images/index/3/${image}.jpg" width="235" height="167">
+             		<img src="./demo_images/index/3/${image}" width="235" height="167">
              		<p>${introduce}</a></li>
 			</s:iterator>
 				</ul>
@@ -181,7 +181,7 @@
 			<ul class="clear">
 				<s:iterator status="st" value="#list4" id="name">	
 				<li><a href="${imageLink}?navEnglishName=${navEnglishName}">
-             	<img src="./demo_images/index/4/${image}.jpg" width="293" height="235">
+             	<img src="./demo_images/index/4/${image}" width="293" height="235">
              	<p>${introduce}</a></li>
 				</s:iterator>
 			</ul>

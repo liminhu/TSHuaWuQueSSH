@@ -1,18 +1,19 @@
 package com.tangshan.hwq.view.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.mapping.Array;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.tangshan.hwq.base.BaseAction;
 import com.tangshan.hwq.domain.DetailInfo;
+import com.tangshan.hwq.domain.HumanResInfo;
 import com.tangshan.hwq.domain.IndexModuleInfo;
 import com.tangshan.hwq.domain.NavigationInfo;
 import com.tangshan.hwq.domain.PageInfo;
+import com.tangshan.hwq.domain.WechatInfo;
+import com.tangshan.hwq.util.QueryHelper;
 
 @Controller
 @Scope("prototype")
@@ -42,14 +43,23 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 	
 	
 	public String gethomeUI() throws Exception {
-		List<IndexModuleInfo> list1=indexService.findListByModuleEnglishName("1");
-		List<IndexModuleInfo> list2=indexService.findListByModuleEnglishName("2");
-		List<IndexModuleInfo> list3=indexService.findListByModuleEnglishName("3");
-		List<IndexModuleInfo> list4=indexService.findListByModuleEnglishName("4");
+		String navEnglishName='%' + "hyjj" + '%';
+		List<IndexModuleInfo> list1=indexService.findListByModuleEnglishName(navEnglishName);
+		navEnglishName='%' + "jjrz" + '%';
+		List<IndexModuleInfo> list2=indexService.findListByModuleEnglishName(navEnglishName);
+		navEnglishName='%' + "ybjrz" + '%';
+		List<IndexModuleInfo> list3=indexService.findListByModuleEnglishName(navEnglishName);
+		navEnglishName='%' + "jdrz" + '%';
+		List<IndexModuleInfo> list4=indexService.findListByModuleEnglishName(navEnglishName);
 		ActionContext.getContext().put("list1", list1);
 		ActionContext.getContext().put("list2", list2);
 		ActionContext.getContext().put("list3", list3);
 		ActionContext.getContext().put("list4", list4);
+		
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
+		
 		return "homeUI";
 	}
 	
@@ -59,6 +69,9 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		}else{
 			actionName=aboutLzyhy();
 		}
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		return actionName;
 	}
 	
@@ -95,6 +108,9 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		if(navEnglishName == null){
 			return "about_hwq";
 		}
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		return navEnglishName;
 	}
 	
@@ -136,6 +152,9 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("nav", nav);
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("childrenNav", childrenNav);
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_hyjj";
 		}
@@ -174,6 +193,9 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("nav", nav);
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("childrenNav", childrenNav);
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_hyqy";
 		}
@@ -215,6 +237,9 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("nav", nav);
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("childrenNav", childrenNav);
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_lzyhy";
 		}
@@ -222,11 +247,19 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 	}
 	
 	public String aboutRlzy(){
+		List<HumanResInfo> list=humanResService.findAll();
+		ActionContext.getContext().put("list", list);
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		return "about_rlzy";
 	}
 	
 	
 	public String aboutLxwm(){
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", true)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		return "about_lxwm";
 	}
 	

@@ -27,10 +27,8 @@ public class InitListener implements ServletContextListener {
 		List<NavigationInfo> topNavigationList = navService.findTopList();
 		sce.getServletContext().setAttribute("topNavigationList", topNavigationList);
 		System.out.println("------------> 已准备数据topNavigationList <------------"+topNavigationList.size());
-    
-		
+    		
 	
-
 /*		// 准备数据：childNavigation
 		List<NavigationInfo> childNavList = navService.findAllNotTopList();
 		sce.getServletContext().setAttribute("childNavigationList", childNavList);

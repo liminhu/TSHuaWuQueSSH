@@ -58,7 +58,7 @@ $(".subnav li").click(function(){
 			  <s:iterator status="st" value="#request.images" id="name"> 
 				<p><br/></p>
 				<p style="text-align: center">
-				<img src="./demo_images/detail/lzyhy/<s:property value="name"/>"  width="600" height="389"/></p>
+				<img src="./demo_images/detail/lzyhy/<s:property value="name"/>" /></p>
 				<p style="text-align: center">
 				&nbsp;</p>
 			</s:iterator>

@@ -16,7 +16,7 @@
             </column>
         </property>
         <property name="link" type="java.lang.String">
-            <column name="link" length="80" not-null="true">
+            <column name="link" length="180" not-null="true">
                 <comment>链接地址</comment>
             </column>
         </property>
