@@ -33,9 +33,12 @@ public class UserAction extends BaseAction<UserInfo> {
 			addFieldError("login", "验证码不正确！");
 			return "loginUI";
 		}
-		if(model.getUserName()!=null && model.getPassword() != null){
+		if(model !=null){
 			if(model.getUserName().equals("admin") && model.getPassword().equals("admin")){
-				ActionContext.getContext().getSession().put("user", "admin");
+				UserInfo uesr=new UserInfo();
+				uesr.setUserName("admin");
+				uesr.setPassword("admin");
+				ActionContext.getContext().getSession().put("user", uesr);
 				return "toIndex";
 			}
 		}
