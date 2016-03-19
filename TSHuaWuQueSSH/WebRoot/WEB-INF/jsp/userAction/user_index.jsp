@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('花言巧语管理',this);" target="content3" title="花言巧语管理">花言巧语管理</a></li>
 	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('软装与花艺管理',this);" target="content3" title="软装与花艺管理">软装与花艺管理</a></li>
 	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('人力资源管理',this);" target="content3" title="人力资源管理">人力资源管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('微信链接管理',this);" target="content3" title="微信链接管理">微信链接管理</a></li>
+	                   		<li id="now33"><a href="wechat_list.action" onClick="go_cmdurl('微信链接管理',this);" target="content3" title="微信链接管理">微信链接管理</a></li>
 	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('用户登录管理',this);" target="content3" title="用户登录管理">用户登录管理</a></li>
              	       </ul>  
 		   

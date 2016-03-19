@@ -53,7 +53,7 @@ function openPage(urlName) {
 	}
 	else if("desktop" == cfg.target){
 		parent.desktop.location = cfg.url;
-		parent.document.title = "网上订餐系统 - " + urlName;
+		parent.document.title = "花无缺系统 - " + urlName;
 	}
 }
 
