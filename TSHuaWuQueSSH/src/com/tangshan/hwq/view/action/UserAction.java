@@ -55,7 +55,11 @@ public class UserAction extends BaseAction<UserInfo> {
 	}
 	
 	
-	
+	/** 注销 */
+	public String logout() throws Exception {
+		ActionContext.getContext().getSession().remove("user");
+		return "loginUI";
+	}
 	
 
 }

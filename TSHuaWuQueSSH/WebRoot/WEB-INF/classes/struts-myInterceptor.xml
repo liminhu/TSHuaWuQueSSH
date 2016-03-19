@@ -15,9 +15,10 @@
 	    </interceptors>
 	
 <!-- 	    <default-interceptor-ref name="myStack"></default-interceptor-ref> -->
-	    
+	
 	    <global-results>
-	        <result name="login">/login.jsp</result>
-	    </global-results>  
+	        <result name="login" type="redirectAction">user_login.action</result>
+	    </global-results> 
+	    
     </package>
 </struts>

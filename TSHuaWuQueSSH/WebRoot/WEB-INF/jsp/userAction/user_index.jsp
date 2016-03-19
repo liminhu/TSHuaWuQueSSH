@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <p style="float:left ; margin-left:50px; margin-top:10px; color:#FFF; font-size:16px; font-family:黑体;">
               管理员后台 &gt;&nbsp;当前登录者：&nbsp;<span id="username">${user.userName}</span></p>
 	<ul> 
-	    <li><a href="${pageContext.request.contextPath}/userInfo_logout.action">退出系统</a>&nbsp;|&nbsp;</li>
+	    <li><a href="${pageContext.request.contextPath}/user_logout.action">退出系统</a>&nbsp;|&nbsp;</li>
 	</ul>
 	</div>	
 	
@@ -44,16 +44,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="left_menu_cnt">
 		          
 		    	      <ul id="dleft_tab2" style="display:none;">
-	                   		<li id="now33"><a href="page_aboutHwq.action" onClick="go_cmdurl('首页管理',this);" target="content3" title="首页管理">首页管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('关于花无缺管理',this);" target="content3" title="关于花无缺管理">关于花无缺管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('花艺集锦管理',this);" target="content3" title="花艺集锦管理">花艺集锦管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('花言巧语管理',this);" target="content3" title="花言巧语管理">花言巧语管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('软装与花艺管理',this);" target="content3" title="软装与花艺管理">软装与花艺管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('人力资源管理',this);" target="content3" title="人力资源管理">人力资源管理</a></li>
+	                   		<!-- <li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('关于花无缺管理',this);" target="content3" title="关于花无缺管理">花无缺管理</a></li> -->
+	                   		<li id="now33">花无缺管理</li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hwq_jj" onClick="go_cmdurl('关于花无缺',this);" target="content3" title="关于花无缺">关于花无缺</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hwq_qywh" onClick="go_cmdurl('企业文化',this);" target="content3" title="企业文化">企业文化</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hwq_lyzz" onClick="go_cmdurl('荣誉资质',this);" target="content3" title="荣誉资质">荣誉资质</a></li>
+	                   		<li id="now33">花艺集锦管理</li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hyjj_hs" onClick="go_cmdurl('花束',this);" target="content3" title="花束">花束</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hyjj_hc" onClick="go_cmdurl('花插',this);" target="content3" title="花插">花插</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hyjj_hh" onClick="go_cmdurl('花盒',this);" target="content3" title="花盒">花盒</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hyjj_hw" onClick="go_cmdurl('会务',this);" target="content3" title="会务">会务</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hyjj_hd" onClick="go_cmdurl('活动',this);" target="content3" title="活动">活动</a></li>
+	                   		<li id="now33">花言巧语管理</li>
+							<li id="now33"><a href="detail_list.action?navEnglishName=hyqy_xhyhzs" onClick="go_cmdurl('鲜花养护知识',this);" target="content3" title="鲜花养护知识">鲜花养护知识</a></li>
+							<li id="now33"><a href="detail_list.action?navEnglishName=hyqy_hydq" onClick="go_cmdurl('花语大全',this);" target="content3" title="花语大全">花语大全</a></li>
+							<li id="now33"><a href="detail_list.action?navEnglishName=hyqy_xhyaq" onClick="go_cmdurl('鲜花与爱情',this);" target="content3" title="鲜花与爱情">鲜花与爱情</a></li>
+   		                   <li id="now33">软装与花艺管理</li>
+   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz" onClick="go_cmdurl('家居软装',this);" target="content3" title="家居软装">家居软装</a></li>
+   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_ybjrz" onClick="go_cmdurl('样板间软装',this);" target="content3" title="样板间软装">样板间软装</a></li>
+   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jdrz" onClick="go_cmdurl('酒店软装',this);" target="content3" title="酒店软装">酒店软装</a></li>
+	                   		
+	                   		<!-- <li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('人力资源管理',this);" target="content3" title="人力资源管理">人力资源管理</a></li> -->
+	                   		 <li id="now33">微信文章管理</li>
 	                   		<li id="now33"><a href="wechat_list.action" onClick="go_cmdurl('微信链接管理',this);" target="content3" title="微信链接管理">微信链接管理</a></li>
-	                   		<li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('用户登录管理',this);" target="content3" title="用户登录管理">用户登录管理</a></li>
+	                   		<!-- <li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('用户登录管理',this);" target="content3" title="用户登录管理">用户登录管理</a></li> -->
              	       </ul>  
-		   
 			</div>
 			<div class="clear"></div>
 		</div>
