@@ -35,10 +35,9 @@ public class InitListener implements ServletContextListener {
 		System.out.println("------------> 已准备数据childNavList <------------"+childNavList.size());
 */	}
 	
-	@Override
+    @Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		sce.getServletContext().removeAttribute("topNavigationList");
-		sce.getServletContext().removeAttribute("childNavigationList");
 	}
 	
 }

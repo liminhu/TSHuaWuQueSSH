@@ -14,6 +14,7 @@ import com.tangshan.hwq.service.HumanResService;
 import com.tangshan.hwq.service.IndexModuleService;
 import com.tangshan.hwq.service.NavigationService;
 import com.tangshan.hwq.service.PageInfoService;
+import com.tangshan.hwq.service.StatisticalService;
 import com.tangshan.hwq.service.UserService;
 import com.tangshan.hwq.service.WechatService;
 import com.tangshan.hwq.service.impl.WechatServiceImpl;
@@ -63,6 +64,10 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	
 	@Resource
     protected WechatService wechatService;
+	
+	
+	@Resource
+    protected StatisticalService statisticalService;
     
 	/**
 	 * 获取当前登录的用户

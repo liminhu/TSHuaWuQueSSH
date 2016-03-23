@@ -1,10 +1,11 @@
-package com.tangshan.hwq.util;
 
+package com.tangshan.hwq.util;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +18,8 @@ import com.tangshan.hwq.domain.HumanResInfo;
 import com.tangshan.hwq.domain.IndexModuleInfo;
 import com.tangshan.hwq.domain.NavigationInfo;
 import com.tangshan.hwq.domain.PageInfo;
+import com.tangshan.hwq.domain.StatisticalInfo;
+import com.tangshan.hwq.domain.UserInfo;
 import com.tangshan.hwq.domain.WechatInfo;
 import com.tangshan.hwq.service.HumanResService;
 import com.tangshan.hwq.service.IndexModuleService;
@@ -128,14 +131,14 @@ public class Installer {
 		session.save(index4);
 		session.save(index5);
 		
-		IndexModuleInfo index6=new IndexModuleInfo("家居软装",  "17.jpg", "page_showDetail.action", "软装之——植物系列","lzyhy_jjrz" ,1);
-		IndexModuleInfo index7=new IndexModuleInfo("家居软装",  "18.jpg", "page_showDetail.action", "软装之——窗帘系列","lzyhy_jjrz" ,2);
-		IndexModuleInfo index8=new IndexModuleInfo("家居软装",  "19.jpg", "page_showDetail.action", "软装之——床品系列","lzyhy_jjrz" ,3);
-		IndexModuleInfo index9=new IndexModuleInfo("家居软装",  "20.jpg", "page_showDetail.action", "软装之——灯饰系列","lzyhy_jjrz" ,4);
-		IndexModuleInfo index10=new IndexModuleInfo("家居软装",  "21.jpg", "page_showDetail.action", "软装之——挂画系列","lzyhy_jjrz",5);
-		IndexModuleInfo index11=new IndexModuleInfo("家居软装", "22.jpg", "page_showDetail.action", "软装之——地毯系列","lzyhy_jjrz" ,6);
-		IndexModuleInfo index12=new IndexModuleInfo("家居软装",  "23.jpg", "page_showDetail.action", "软装之——家具系列","lzyhy_jjrz",7);
-		IndexModuleInfo index13=new IndexModuleInfo("家居软装",  "24.jpg", "page_showDetail.action", "软装之——饰品系列","lzyhy_jjrz",8);
+		IndexModuleInfo index12=new IndexModuleInfo("家居软装",  "23.jpg", "page_showDetail.action", "软装之——家具系列","lzyhy_jjrz",0);
+		IndexModuleInfo index7=new IndexModuleInfo("家居软装",  "18.jpg", "page_showDetail.action", "软装之——窗帘系列","lzyhy_jjrz" ,1);
+		IndexModuleInfo index8=new IndexModuleInfo("家居软装",  "19.jpg", "page_showDetail.action", "软装之——床品系列","lzyhy_jjrz" ,2);
+		IndexModuleInfo index9=new IndexModuleInfo("家居软装",  "20.jpg", "page_showDetail.action", "软装之——灯饰系列","lzyhy_jjrz" ,3);
+		IndexModuleInfo index10=new IndexModuleInfo("家居软装",  "21.jpg", "page_showDetail.action", "软装之——挂画系列","lzyhy_jjrz",4);
+		IndexModuleInfo index11=new IndexModuleInfo("家居软装", "22.jpg", "page_showDetail.action", "软装之——地毯系列","lzyhy_jjrz" ,5);
+		IndexModuleInfo index6=new IndexModuleInfo("家居软装",  "17.jpg", "page_showDetail.action", "软装之——植物系列","lzyhy_jjrz" ,6);
+		IndexModuleInfo index13=new IndexModuleInfo("家居软装",  "24.jpg", "page_showDetail.action", "软装之——饰品系列","lzyhy_jjrz",7);
 		
 		session.save(index6);
 		session.save(index7);
@@ -146,14 +149,14 @@ public class Installer {
 		session.save(index12);
 		session.save(index13);
 		
-		IndexModuleInfo index14=new IndexModuleInfo("样板间软装",  "25.jpg",  "page_showDetail.action", "1","lzyhy_ybjrz" ,1);
-		IndexModuleInfo index15=new IndexModuleInfo("样板间软装",  "26.jpg",  "page_showDetail.action", "2", "lzyhy_ybjrz" ,2);
-		IndexModuleInfo index16=new IndexModuleInfo("样板间软装",  "27.jpg", "page_showDetail.action", "3","lzyhy_ybjrz" ,3);
-		IndexModuleInfo index17=new IndexModuleInfo("样板间软装", "28.jpg", "page_showDetail.action", "4", "lzyhy_ybjrz" ,4);
-		IndexModuleInfo index18=new IndexModuleInfo("样板间软装",  "29.jpg", "page_showDetail.action", "5", "lzyhy_ybjrz" ,5);
-		IndexModuleInfo index19=new IndexModuleInfo("样板间软装",  "30.jpg", "page_showDetail.action", "6", "lzyhy_ybjrz" ,6);
-		IndexModuleInfo index20=new IndexModuleInfo("样板间软装", "31.jpg", "page_showDetail.action", "7", "lzyhy_ybjrz" ,7);
-		IndexModuleInfo index21=new IndexModuleInfo("样板间软装",  "32.jpg", "page_showDetail.action", "8", "lzyhy_ybjrz" ,8);
+		IndexModuleInfo index14=new IndexModuleInfo("样板间软装",  "25.jpg",  "page_showDetail.action", "1","lzyhy_ybjrz" ,0);
+		IndexModuleInfo index15=new IndexModuleInfo("样板间软装",  "26.jpg",  "page_showDetail.action", "2", "lzyhy_ybjrz" ,1);
+		IndexModuleInfo index16=new IndexModuleInfo("样板间软装",  "27.jpg", "page_showDetail.action", "3","lzyhy_ybjrz" ,2);
+		IndexModuleInfo index17=new IndexModuleInfo("样板间软装", "28.jpg", "page_showDetail.action", "4", "lzyhy_ybjrz" ,3);
+		IndexModuleInfo index18=new IndexModuleInfo("样板间软装",  "29.jpg", "page_showDetail.action", "5", "lzyhy_ybjrz" ,4);
+		IndexModuleInfo index19=new IndexModuleInfo("样板间软装",  "30.jpg", "page_showDetail.action", "6", "lzyhy_ybjrz" ,5);
+		IndexModuleInfo index20=new IndexModuleInfo("样板间软装", "31.jpg", "page_showDetail.action", "7", "lzyhy_ybjrz" ,6);
+		IndexModuleInfo index21=new IndexModuleInfo("样板间软装",  "32.jpg", "page_showDetail.action", "8", "lzyhy_ybjrz" ,7);
 	
 		session.save(index14);
 		session.save(index15);
@@ -165,14 +168,14 @@ public class Installer {
 		session.save(index21);
 		
 		
-		IndexModuleInfo index22=new IndexModuleInfo("酒店软装",  "33.jpg", "page_showDetail.action", "1" ,"lzyhy_jdrz" ,1);
-		IndexModuleInfo index23=new IndexModuleInfo("酒店软装",  "34.jpg", "page_showDetail.action", "2","lzyhy_jdrz" ,2);
-		IndexModuleInfo index24=new IndexModuleInfo("酒店软装",  "35.jpg", "page_showDetail.action", "3","lzyhy_jdrz" ,3);
-		IndexModuleInfo index25=new IndexModuleInfo("酒店软装",  "36.jpg", "page_showDetail.action", "4","lzyhy_jdrz" ,4);
-		IndexModuleInfo index26=new IndexModuleInfo("酒店软装",  "37.jpg", "page_showDetail.action", "5","lzyhy_jdrz" ,5);
-		IndexModuleInfo index27=new IndexModuleInfo("酒店软装",  "38.jpg", "page_showDetail.action", "6","lzyhy_jdrz" ,6);
-		IndexModuleInfo index28=new IndexModuleInfo("酒店软装",  "39.jpg", "page_showDetail.action", "7","lzyhy_jdrz" ,7);
-		IndexModuleInfo index29=new IndexModuleInfo("酒店软装",  "40.jpg", "page_showDetail.action", "8","lzyhy_jdrz" ,8);
+		IndexModuleInfo index22=new IndexModuleInfo("酒店软装",  "33.jpg", "page_showDetail.action", "1" ,"lzyhy_jdrz" ,0);
+		IndexModuleInfo index23=new IndexModuleInfo("酒店软装",  "34.jpg", "page_showDetail.action", "2","lzyhy_jdrz" ,1);
+		IndexModuleInfo index24=new IndexModuleInfo("酒店软装",  "35.jpg", "page_showDetail.action", "3","lzyhy_jdrz" ,2);
+		IndexModuleInfo index25=new IndexModuleInfo("酒店软装",  "36.jpg", "page_showDetail.action", "4","lzyhy_jdrz" ,3);
+		IndexModuleInfo index26=new IndexModuleInfo("酒店软装",  "37.jpg", "page_showDetail.action", "5","lzyhy_jdrz" ,4);
+		IndexModuleInfo index27=new IndexModuleInfo("酒店软装",  "38.jpg", "page_showDetail.action", "6","lzyhy_jdrz" ,5);
+		IndexModuleInfo index28=new IndexModuleInfo("酒店软装",  "39.jpg", "page_showDetail.action", "7","lzyhy_jdrz" ,6);
+		IndexModuleInfo index29=new IndexModuleInfo("酒店软装",  "40.jpg", "page_showDetail.action", "8","lzyhy_jdrz" ,7);
 	
 		session.save(index22);
 		session.save(index23);
@@ -216,6 +219,13 @@ public class Installer {
 				
 		nav=navService.findNavByEnglishName("lzyhy_jjrz");
 		DetailInfo detail_12=new DetailInfo(nav, "44.jpg", 7, "95.jpg;96.jpg;97.jpg;98.jpg;99.jpg;100.jpg;101.jpg;", "lzyhy_jjrz",time,0);
+		DetailInfo detail_15=new DetailInfo(nav, "44.jpg", 7, "148.jpg;149.jpg;150.jpg;151.jpg;152.jpg;153.jpg;154.jpg;", "lzyhy_jjrz",time,1);
+		DetailInfo detail_16=new DetailInfo(nav, "44.jpg", 8, "155.jpg;156.jpg;157.jpg;158.jpg;159.jpg;160.jpg;161.jpg;162.jpg;", "lzyhy_jjrz",time,2);
+		DetailInfo detail_17=new DetailInfo(nav, "44.jpg", 8, "163.jpg;164.jpg;165.jpg;166.jpg;167.jpg;168.jpg;169.jpg;170.jpg;", "lzyhy_jjrz",time,3);
+		DetailInfo detail_18=new DetailInfo(nav, "44.jpg", 10,"171.jpg;172.jpg;173.jpg;174.jpg;175.jpg;176.jpg;177.jpg;178.jpg;179.jpg;180.jpg;", "lzyhy_jjrz",time,4);
+		DetailInfo detail_19=new DetailInfo(nav, "44.jpg", 8, "181.jpg;182.jpg;183.jpg;184.jpg;185.jpg;186.jpg;187.jpg;188.jpg;", "lzyhy_jjrz",time,5);
+		DetailInfo detail_20=new DetailInfo(nav, "44.jpg", 11, "189.jpg;190.jpg;191.jpg;192.jpg;193.jpg;194.jpg;195.jpg;196.jpg;197.jpg;198.jpg;199.jpg;", "lzyhy_jjrz",time,6);
+		DetailInfo detail_21=new DetailInfo(nav, "44.jpg", 12, "200.jpg;201.jpg;202.jpg;203.jpg;204.jpg;205.jpg;206.jpg;207.jpg;208.jpg;209.jpg;210.jpg;211.jpg;", "lzyhy_jjrz",time,7);
 
 		nav=navService.findNavByEnglishName("lzyhy_ybjrz");
 		DetailInfo detail_13=new DetailInfo(nav, "44.jpg", 8, "131.jpg;132.jpg;133.jpg;134.jpg;135.jpg;136.jpg;137.jpg;138.jpg","lzyhy_ybjrz",time, 0);
@@ -237,6 +247,13 @@ public class Installer {
 		session.save(detail_12);
 		session.save(detail_13);
 		session.save(detail_14);
+		session.save(detail_15);
+		session.save(detail_16);
+		session.save(detail_17);
+		session.save(detail_18);
+		session.save(detail_19);
+		session.save(detail_20);
+		session.save(detail_21);
 		session.flush();
 	}
 	
@@ -267,22 +284,34 @@ public class Installer {
 	@Transactional
 	public void install() {
 		Session session = sessionFactory.getCurrentSession();
-	   //testPageTable(session);
-	   //testNavTable(session);
-	   //testIndexModuleTable(session);
-		//testDetailTable(session);
-		//testHumanResTable(session);
+		Timestamp time=new Timestamp(Calendar.getInstance().getTimeInMillis());
+		
+		UserInfo user = new UserInfo();
+		user.setUserName("admin");
+		String s = DigestUtils.md5Hex("123");
+		user.setPassword(s);
+		
+		
+		String ip=MyUtilHelper.getIpAddr();
+		StatisticalInfo statisticalInfo=new StatisticalInfo(ip, 0, time, 211, 0);
+		
+		/*session.save(user);
+		session.save(statisticalInfo);
+		
+	    testPageTable(session);
+	    testNavTable(session);
+	    testIndexModuleTable(session);
+		testDetailTable(session);
+		testHumanResTable(session);
 		testWechatTable(session);
+*/
+		
+		
 	//	List<IndexModuleInfo> list=indexService.findListByModuleEnglishName("1");
 	//	System.out.println(list.size());
 		
 		
-		// 保存超级管理员用户
-	/*	UserInfo user = new UserInfo();
-		user.setUserName("admin");
-		String s = DigestUtils.md5Hex("123");
-		user.setPassword(s);
-		session.save(user);*/
+	
 				
 	}
 

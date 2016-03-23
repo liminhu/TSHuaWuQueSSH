@@ -33,8 +33,7 @@
 
          <s:iterator status="st" value="#list" id="name">  	
                   <div class="div" >
-                    <div class="div1"><p>职位 : ${position}</p></div>
-                    <div class="div2"><p>月薪: ${monthSalary}</p></div>
+                    <div class="div1"><p>职位 : ${position} &nbsp;月薪: ${monthSalary}</p></div>
                     <div class="div2"><p>学历: ${educationBackground}</p></div>
                     <div class="div3"><p class="p2">
                          <p>岗位职责：${responsibility}<br/><br/>任职资格：${qualifications}</p></div>
