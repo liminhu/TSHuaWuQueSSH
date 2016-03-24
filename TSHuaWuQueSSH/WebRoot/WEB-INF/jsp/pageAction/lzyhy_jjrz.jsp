@@ -51,7 +51,7 @@ $(".subnav li").click(function(){
 
         <div class="news-boxs clear neiye">
             <div class="top">
-                <p class="p1">英伦美家软装之——家具系列</p>
+                <p class="p1">家居软装——${index.introduce}</p>
 				<p class="p2">&nbsp;</p>
             </div>
 			<div class="new_con">
@@ -63,6 +63,9 @@ $(".subnav li").click(function(){
 				&nbsp;</p>
 			</s:iterator>
 	    </div>
+	      <div align="right">
+	         <a href="${imageLink}?navEnglishName=${navEnglishName}&seletedNum=${nextNum}"  style="color: #000; font-weight: bolder; font-size:15px">${next}</a>
+	      </div>
     </div>
 </div>
     <script type="text/javascript">

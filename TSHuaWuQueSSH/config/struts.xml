@@ -55,7 +55,14 @@
 			<result name="hyqy_xhyaq">/WEB-INF/jsp/pageAction/hyqy_xhyaq.jsp</result>
 			
 		    <result name="about_lzyhy">/WEB-INF/jsp/pageAction/lzyhy_jjrz.jsp</result>
-		    <result name="lzyhy_jjrz" type="redirectAction">page_aboutLzyhy</result>
+		   
+		    <result name="lzyhy_detail" type="chain">
+		    	  <param name="actionName">page_aboutLzyhy</param>  
+			      <param name="navEnglishName">${navEnglishName}</param>   
+			      <param name="seletedNum">${seletedNum}</param>
+		    </result>
+		    
+		    <result name="lzyhy_jjrz">/WEB-INF/jsp/pageAction/lzyhy_jjrz.jsp</result>
 		    <result name="lzyhy_ybjrz">/WEB-INF/jsp/pageAction/lzyhy_ybjrz.jsp</result>
 			<result name="lzyhy_jdrz">/WEB-INF/jsp/pageAction/lzyhy_jdrz.jsp</result>
 			
@@ -79,7 +86,8 @@
 	     	<result name="saveUI">/WEB-INF/jsp/detailAction/saveUI.jsp</result>
 			<result name="toList" type="chain">
 			    <param name="actionName">detail_list</param>  
-			    <param name="navEnglishName">${navEnglish}</param>   
+			    <param name="navEnglishName">${navEnglishName}</param>   
+			    <param name="seletedNum">${seletedNum}</param>
 			</result>
 		</action>
 	

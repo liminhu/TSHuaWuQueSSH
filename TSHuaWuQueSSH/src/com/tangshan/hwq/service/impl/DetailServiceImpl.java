@@ -17,6 +17,16 @@ public class DetailServiceImpl extends DaoSupportImpl<DetailInfo> implements Det
 				.setParameter(0, engName)   //
 				.uniqueResult();
 	}
+	
+	@Override
+	public DetailInfo findNavByEnglishNameAndSeletedNum(String engName,
+			int seletedNum) {
+		return (DetailInfo)getSession().createQuery(//
+				"FROM DetailInfo d WHERE d.navEnglishName=? and  d.seletedNum=? ")//
+				.setParameter(0, engName)   //
+				.setParameter(1, seletedNum)  //
+				.uniqueResult();
+	}
 
 	
 }

@@ -20,7 +20,15 @@ import com.tangshan.hwq.util.QueryHelper;
 public class PageInfoAction extends BaseAction<PageInfo> {
 	int selected;
 	String navEnglishName;
-	String actionName;
+	int seletedNum;
+	
+	public int getSeletedNum() {
+		return seletedNum;
+	}
+
+	public void setSeletedNum(int seletedNum) {
+		this.seletedNum = seletedNum;
+	}
 
 	public String getNavEnglishName() {
 		return navEnglishName;
@@ -64,15 +72,7 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 	}
 	
 	public String showDetail(){
-		if(navEnglishName.contains("hyjj")){
-			actionName=aboutHyjj();
-		}else{
-			actionName=aboutLzyhy();
-		}
-		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
-    	.preparePageBean(wechatService, pageNum, pageSize);	
-		return actionName;
+		return "lzyhy_detail";
 	}
 	
 	
@@ -210,10 +210,24 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 	public String aboutLzyhy(){
 		DetailInfo detail=null;
 		NavigationInfo nav=null;
+		IndexModuleInfo index=null;
 		if(navEnglishName == null){
 			selected=0;
-			detail=detailService.findNavByEnglishName("lzyhy_jjrz");
+			detail=detailService.findNavByEnglishNameAndSeletedNum("lzyhy_jjrz",seletedNum);
+			index=indexService.findModuleByEnglishNameAndSeletedNum("lzyhy_jjrz", seletedNum);
 			nav=navService.findNavByEnglishName("lzyhy_jjrz");
+			if(seletedNum==7){
+				int nextNum=0;
+				IndexModuleInfo index1=indexService.findModuleByEnglishNameAndSeletedNum("lzyhy_jjrz", nextNum);
+				ActionContext.getContext().put("next", "下一个为第一个系列："+index1.getIntroduce());
+				ActionContext.getContext().put("nextNum", nextNum);
+			}else{
+				int nextNum=seletedNum+1;
+				IndexModuleInfo index1=indexService.findModuleByEnglishNameAndSeletedNum("lzyhy_jjrz", nextNum);
+				ActionContext.getContext().put("next", "下一系列："+index1.getIntroduce());
+				ActionContext.getContext().put("nextNum", nextNum);
+			}
+			ActionContext.getContext().put("index", index);
 		}
 		else if(navEnglishName.equals("lzyhy_ybjrz")){
 			detail=detailService.findNavByEnglishName(navEnglishName);
@@ -224,9 +238,22 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 			nav=navService.findNavByEnglishName(navEnglishName);
 			selected=2;
 		}else{
-			detail=detailService.findNavByEnglishName("lzyhy_jjrz");
+			detail=detailService.findNavByEnglishNameAndSeletedNum("lzyhy_jjrz",seletedNum);
 			nav=navService.findNavByEnglishName("lzyhy_jjrz");
+			index=indexService.findModuleByEnglishNameAndSeletedNum("lzyhy_jjrz", seletedNum);
 			selected=0;
+			if(seletedNum==7){
+				int nextNum=0;
+				IndexModuleInfo index1=indexService.findModuleByEnglishNameAndSeletedNum("lzyhy_jjrz", nextNum);
+				ActionContext.getContext().put("next", "下一个为第一个系列："+index1.getIntroduce());
+				ActionContext.getContext().put("nextNum", nextNum);
+			}else{
+				int nextNum=seletedNum+1;
+				IndexModuleInfo index1=indexService.findModuleByEnglishNameAndSeletedNum("lzyhy_jjrz", nextNum);
+				ActionContext.getContext().put("next", "下一系列："+index1.getIntroduce());
+				ActionContext.getContext().put("nextNum", nextNum);
+			}
+			ActionContext.getContext().put("index", index);
 		}
 		String[] images=new String[]{};
 		List<NavigationInfo> childrenNav=navService.getAllChildrenNavList(nav.getNavigationInfo().getNavigationId());

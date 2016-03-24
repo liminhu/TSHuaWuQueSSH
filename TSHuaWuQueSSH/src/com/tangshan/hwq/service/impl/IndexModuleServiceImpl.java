@@ -22,4 +22,15 @@ public class IndexModuleServiceImpl extends DaoSupportImpl<IndexModuleInfo> impl
 				.setParameter(0, moduleEnglishName).list();
 	}
 	
+	
+	@Override
+	public IndexModuleInfo findModuleByEnglishNameAndSeletedNum(String engName,
+			int seletedNum) {
+		return (IndexModuleInfo)getSession().createQuery(//
+				"FROM IndexModuleInfo d WHERE d.navEnglishName=? and  d.seletedNum=? ")//
+				.setParameter(0, engName)   //
+				.setParameter(1, seletedNum)  //
+				.uniqueResult();
+	}
+	
 }

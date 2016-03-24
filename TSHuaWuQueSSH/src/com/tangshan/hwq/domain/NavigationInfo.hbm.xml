@@ -40,7 +40,7 @@
                 <comment>最近更新时间</comment>
             </column>
         </property>
-        <set name="navigationInfos" inverse="true" lazy="false">
+        <set name="navigationInfos" inverse="true" lazy="false" order-by="navigationId asc">
             <key>
                 <column name="parentNavId">
                     <comment>上级导航栏的ID</comment>
