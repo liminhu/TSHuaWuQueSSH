@@ -8,18 +8,29 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.tangshan.hwq.domain.StatisticalInfo;
+import com.tangshan.hwq.service.StatisticalService;
 
+@Controller
+@Scope("prototype")
 public class ImageUploadAction extends ActionSupport {
 	private String fileName;
 	private File uploadFile;
 	private InputStream inputStream;
 	private String oldImg;
 	private String suffix;
+	
+	@Resource
+    private StatisticalService statisticalService;
+	
 	
 	public String getSuffix() {
 		return suffix;
@@ -65,7 +76,14 @@ public class ImageUploadAction extends ActionSupport {
 		// 得到绝对路径 targetDirectory
 		String targetDirectory = ServletActionContext.getServletContext()
 				.getRealPath(directory);
+		StatisticalInfo statis=statisticalService.getFirstStatisticalRecord();
 		StringBuffer newName = new StringBuffer(fileName + "."+suffix);
+		if(statis!=null){
+			fileName=String.valueOf(statis.getEntireImageNum()+1);
+			newName=new  StringBuffer(fileName + ".jpg");
+		}else{
+			newName = new StringBuffer(fileName + "."+suffix);
+		}
 		if (uploadFile != null && suffix!=null && oldImg != null) {
 			File target = new File(targetDirectory, newName.toString());
 			BufferedImage image = ImageIO.read(new FileInputStream(

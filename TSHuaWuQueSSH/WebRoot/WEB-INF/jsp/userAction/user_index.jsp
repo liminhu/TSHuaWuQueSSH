@@ -37,13 +37,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="menu_top"></div>
 		<div class="menu" id="TabPage3">
 			<ul id="TabPage2">
-			  <li id="left_tab2" onClick="javascript:border_left('TabPage2','left_tab2');" title="信息管理">信息管理</li>
+			  <li id="left_tab1" class="Selected" onClick="javascript:border_left('TabPage2','left_tab1');" title="信息管理">信息管理</li>
+			  <li id="left_tab2" onClick="javascript:border_left('TabPage2','left_tab2');" title="软装与花艺">软装与花艺</li>
 			</ul>
 				
 			<!-- 一级目录 -->	
-			<div id="left_menu_cnt">
+			<div id="left_menu_cnt" style="height: auto;">
 		          
-		    	      <ul id="dleft_tab2" style="display:none;">
+		    	      <ul id="dleft_tab1" style="display:none;">
 	                   		<!-- <li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('关于花无缺管理',this);" target="content3" title="关于花无缺管理">花无缺管理</a></li> -->
 	                   		<li id="now33">花无缺管理</li>
 	                   		<li id="now33"><a href="detail_list.action?navEnglishName=hwq_jj" onClick="go_cmdurl('关于花无缺',this);" target="content3" title="关于花无缺">关于花无缺</a></li>
@@ -59,16 +60,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li id="now33"><a href="detail_list.action?navEnglishName=hyqy_xhyhzs" onClick="go_cmdurl('鲜花养护知识',this);" target="content3" title="鲜花养护知识">鲜花养护知识</a></li>
 							<li id="now33"><a href="detail_list.action?navEnglishName=hyqy_hydq" onClick="go_cmdurl('花语大全',this);" target="content3" title="花语大全">花语大全</a></li>
 							<li id="now33"><a href="detail_list.action?navEnglishName=hyqy_xhyaq" onClick="go_cmdurl('鲜花与爱情',this);" target="content3" title="鲜花与爱情">鲜花与爱情</a></li>
-   		                   <li id="now33">软装与花艺管理</li>
-   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz" onClick="go_cmdurl('家居软装',this);" target="content3" title="家居软装">家居软装</a></li>
-   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_ybjrz" onClick="go_cmdurl('样板间软装',this);" target="content3" title="样板间软装">样板间软装</a></li>
-   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jdrz" onClick="go_cmdurl('酒店软装',this);" target="content3" title="酒店软装">酒店软装</a></li>
-	                   		
+
 	                   		<!-- <li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('人力资源管理',this);" target="content3" title="人力资源管理">人力资源管理</a></li> -->
 	                   		 <li id="now33">微信文章管理</li>
 	                   		<li id="now33"><a href="wechat_list.action" onClick="go_cmdurl('微信链接管理',this);" target="content3" title="微信链接管理">微信链接管理</a></li>
 	                   		<!-- <li id="now33"><a href="about_hwq.action" onClick="go_cmdurl('用户登录管理',this);" target="content3" title="用户登录管理">用户登录管理</a></li> -->
              	       </ul>  
+             	       
+             	       
+   		                 
+             	        <ul id="dleft_tab2" style="display:none;">
+             	           <li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_ybjrz" onClick="go_cmdurl('样板间软装',this);" target="content3" title="样板间软装">样板间软装</a></li>
+   		                   	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jdrz" onClick="go_cmdurl('酒店软装',this);" target="content3" title="酒店软装">酒店软装</a></li>
+   		                   	<li id="now33">家居软装管理</li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=0" onClick="go_cmdurl('家居软装',this);" target="content3" title="家居软装">家具系列</a></li>
+	                   	 	<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=1" onClick="go_cmdurl('窗帘系列',this);" target="content3" title="窗帘系列">窗帘系列</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=2" onClick="go_cmdurl('床品系列',this);" target="content3" title="床品系列">床品系列</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=3" onClick="go_cmdurl('灯饰系列',this);" target="content3" title="灯饰系列">灯饰系列</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=4" onClick="go_cmdurl('挂画系列',this);" target="content3" title="挂画系列">挂画系列</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=5" onClick="go_cmdurl('地毯系列',this);" target="content3" title="地毯系列">地毯系列</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=6" onClick="go_cmdurl('植物系列',this);" target="content3" title="植物系列">植物系列</a></li>
+	                   		<li id="now33"><a href="detail_list.action?navEnglishName=lzyhy_jjrz&seletedNum=7" onClick="go_cmdurl('饰品系列',this);" target="content3" title="饰品系列">饰品系列</a></li>
+             	        </ul>
 			</div>
 			<div class="clear"></div>
 		</div>

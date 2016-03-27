@@ -65,14 +65,17 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("list4", list4);
 		
 		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
+    	.addOrderProperty("wechatId", false)
     	.preparePageBean(wechatService, pageNum, pageSize);	
 		
 		return "homeUI";
 	}
 	
 	public String showDetail(){
-		return "lzyhy_detail";
+		if(navEnglishName.contains("lzyhy")){
+			return "lzyhy_detail";
+		}
+		return "hyjj_detail";
 	}
 	
 	
@@ -105,12 +108,12 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("images", images);
 		ActionContext.getContext().put("childrenNav", childrenNav);
+		new QueryHelper(WechatInfo.class, "u")
+    	.addOrderProperty("wechatId", false)
+    	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_hwq";
 		}
-		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
-    	.preparePageBean(wechatService, pageNum, pageSize);	
 		return navEnglishName;
 	}
 	
@@ -153,7 +156,7 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("childrenNav", childrenNav);
 		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
+    	.addOrderProperty("wechatId", false)
     	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_hyjj";
@@ -194,7 +197,7 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("childrenNav", childrenNav);
 		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
+    	.addOrderProperty("wechatId", false)
     	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_hyqy";
@@ -265,7 +268,7 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("childrenNav", childrenNav);
 		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
+    	.addOrderProperty("wechatId", false)
     	.preparePageBean(wechatService, pageNum, pageSize);	
 		if(navEnglishName == null){
 			return "about_lzyhy";
@@ -277,7 +280,7 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		List<HumanResInfo> list=humanResService.findAll();
 		ActionContext.getContext().put("list", list);
 		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
+    	.addOrderProperty("wechatId", false)
     	.preparePageBean(wechatService, pageNum, pageSize);	
 		return "about_rlzy";
 	}
@@ -285,7 +288,7 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 	
 	public String aboutLxwm(){
 		new QueryHelper(WechatInfo.class, "u")
-    	.addOrderProperty("wechatId", true)
+    	.addOrderProperty("wechatId", false)
     	.preparePageBean(wechatService, pageNum, pageSize);	
 		return "about_lxwm";
 	}

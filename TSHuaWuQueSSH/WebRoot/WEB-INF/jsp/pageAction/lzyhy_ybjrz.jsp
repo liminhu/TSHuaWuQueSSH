@@ -51,7 +51,7 @@ $(".subnav li").click(function(){
 
         <div class="news-boxs clear neiye">
             <div class="top">
-                <p class="p1">英伦美家软装之——家具系列</p>
+                <p class="p1">英伦美家软装之——样板间软装</p>
 				<p class="p2">&nbsp;</p>
             </div>
 			<div class="new_con">

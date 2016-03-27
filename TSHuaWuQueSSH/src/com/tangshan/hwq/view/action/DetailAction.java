@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.tangshan.hwq.base.BaseAction;
 import com.tangshan.hwq.domain.DetailInfo;
 import com.tangshan.hwq.domain.NavigationInfo;
-import com.tangshan.hwq.service.DetailService;
+import com.tangshan.hwq.domain.StatisticalInfo;
 
 
 @Controller
@@ -74,25 +74,27 @@ public class DetailAction extends BaseAction<DetailInfo> {
 		if(engName==null){
 			engName=navEnglish;
 		}
-		detail=detailService.findNavByEnglishName(engName);
-		nav=navService.findNavByEnglishName(engName);
 		if(engName.contains("hwq")){
 			path="hwq";
 		}else if(engName.contains("hyjj")){
 			path="hyjj";
 		}else if(engName.contains("hyqy")){
 			path="hyqy";
-		}else if(engName.contains("lzyhy")){
-			path="lzyhy";
 		}else{
 			path="hwq";
 		}
+		if(engName.contains("lzyhy")){
+			path="lzyhy";
+			detail=detailService.findNavByEnglishNameAndSeletedNum(engName, model.getSeletedNum());
+		}else{
+			detail=detailService.findNavByEnglishName(engName);
+		}
+		nav=navService.findNavByEnglishName(engName);
 		ActionContext.getContext().put("detail", detail);
 		ActionContext.getContext().put("nav", nav);
 		ActionContext.getContext().put("path", path);
 		return "list";
 	}
-	
 	
 	
 	
@@ -160,6 +162,12 @@ public class DetailAction extends BaseAction<DetailInfo> {
 	       Timestamp time=new Timestamp(Calendar.getInstance().getTimeInMillis());
 	       detail.setUpdateTime(time);
 	       detailService.save(detail);
+	       StatisticalInfo statis=statisticalService.getFirstStatisticalRecord();
+	       if(statis!=null){
+	    	   statis.setLastLoginTime(time);
+	    	   statis.setEntireImageNum(statis.getEntireImageNum()+1);
+	    	   statisticalService.save(statis);
+	       }
 		}
 		String engName=detail.getNavEnglishName();
 		if(engName.contains("hwq")){

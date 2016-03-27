@@ -40,7 +40,7 @@ public class NavigationServiceImpl extends DaoSupportImpl<NavigationInfo> implem
 	@Override
 	public NavigationInfo findNavByEnglishName(String engName) {
 		return (NavigationInfo)getSession().createQuery(//
-				"FROM NavigationInfo n WHERE n.navEnglishName=?")//
+				"FROM NavigationInfo n WHERE n.navEnglishName=? ")//
 				.setParameter(0, engName)   //
 				.uniqueResult();
 	}

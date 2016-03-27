@@ -13,7 +13,7 @@ public class DetailServiceImpl extends DaoSupportImpl<DetailInfo> implements Det
 	@Override
 	public DetailInfo findNavByEnglishName(String engName) {
 		return (DetailInfo)getSession().createQuery(//
-				"FROM DetailInfo d WHERE d.navEnglishName=?")//
+				"FROM DetailInfo d WHERE d.navEnglishName=? and d.seletedNum=0 order by d.id ASC ")//
 				.setParameter(0, engName)   //
 				.uniqueResult();
 	}

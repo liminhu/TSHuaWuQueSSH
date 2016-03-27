@@ -10,7 +10,7 @@
 		<div class="float-mid">
 			<p align="center" class="marT10"><img width="106" src="./demo_images/floot/ewm.jpg" alt=""></p>
 			<ul>
-				<li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1248024149&site=qq&menu=yes">在线客服1</a></li>
+				<li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=527280479&site=qq&menu=yes">在线客服1</a></li>
 			</ul>
 		</div>
 		<div class="float-bot" align="right"><a href="javascript:;" class="close"></a></div>
@@ -78,7 +78,7 @@
    <div class="fot-links">
      <ul>
      <s:iterator value="#application.topNavigationList" status="st">
-     	<li style="width: 70px; margin-right:90px;"><a href="${navLink}?navEnglishName=${navEnglishName}"><p class="p1">${navChineseName}</p></a></li>
+     	<li style="width: 70px; margin-right:65px;"><a href="${navLink}?navEnglishName=${navEnglishName}"><p class="p1">${navChineseName}</p></a></li>
      </s:iterator>
      </ul>
    </div>

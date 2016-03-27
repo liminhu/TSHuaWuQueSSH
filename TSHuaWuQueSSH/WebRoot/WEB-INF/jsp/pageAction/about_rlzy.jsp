@@ -28,7 +28,7 @@
     });
 </script>        
 
-<div class="inner-main clear">
+<div  style="margin-top:2px">
             <div class="main-con w1002 hr clear">
 
          <s:iterator status="st" value="#list" id="name">  	
