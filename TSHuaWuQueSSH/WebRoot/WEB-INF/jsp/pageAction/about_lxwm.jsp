@@ -52,10 +52,73 @@
 	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mPOhS1FM4UceHhuFcG8elGjv"></script>
-    <script async src="http://c.cnzz.com/core.php"></script>
+   <style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+    .contacts img{float: left;margin: 0px 50px;}
+    .contacts{height: 200px;width: 1000px;margin: 0 auto;position: relative;}
+    .contacts .img1{position: absolute;top: 85px;left: 0px;}
+    .contacts .img2{position: absolute;top: 85px;left: 280px;}
+    .contacts .img3{position: absolute;top: 85px;left: 532px;}
+    .contacts .img4{position: absolute;top: 85px;left: 793px;}
+</style>
+   
 </head>
 
 
+  
+  <body>
+
+  <%@ include file="/WEB-INF/mycommon.jspf" %>
+    
+   <div class="wrap">
+        <div class="lxinner-banner clear">
+            <!--百度地图容器-->
+            <div style="width:100%; height:579px;border:#ccc solid 1px;" id="dituContent"></div>
+        </div>
+        
+    </div>
+    
+<script>
+	$(function(){
+		$(".menu li").hover(function(){
+			$(".menu li").find(".subnav").stop().slideUp();
+            $(this).find(".subnav").stop().slideDown();//.parent().siblings().find(".subnav").slideUp();
+        },function(){
+            $(".menu li").find(".subnav").stop().slideUp();//.parent().siblings().find(".subnav").slideDown();
+        });
+	});
+</script>	
+
+
+<div class="body-wrap">	
+    <div class="inner-banner clear" id="allmap"></div>
+</div>
+	  
+
+<script>
+    $(function(){
+      $(".header .menu ul li").eq(6).addClass("hover");
+    });
+</script>        
+ 
+     <script type="text/javascript">
+         $(".subnav ul li").eq('${selected}').addClass("hover");
+     </script>
+<%-- 
+<script type="text/javascript">
+	// 百度地图API功能
+	
+	//initMap();//创建和初始化地图
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(118.157762, 39.65463), 16);  // 初始化地图,设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	map.setCurrentCity("英伦美家");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script> --%>
+  
+  
 <script type="text/javascript">
     //创建和初始化地图函数：
     function initMap(){
@@ -68,8 +131,9 @@
     //创建地图函数：
     function createMap(){
         var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(118.158437, 39.654562);//定义一个中心点坐标
-        map.centerAndZoom(point,16);//设定地图的中心点和坐标并将地图显示在地图容器中
+                          //118.157762,39.65463
+        var point = new BMap.Point(118.157762, 39.65463);//定义一个中心点坐标
+        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
         window.map = map;//将map变量存储在全局
     }
     
@@ -95,7 +159,7 @@
     }
     
     //标注点数组
-    var markerArr = [{title:"花无缺花店",content:"花店电话：0315-2336628<br/>QQ： 527280479",point:"118.158437|39.654562",isOpen:0,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
+    var markerArr = [{title:"花无缺花店",content:"花店电话：0315-2336628<br/>QQ： 527280479",point:"118.157762|39.65463",isOpen:0,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
          ];
     //创建marker
     function addMarker(){
@@ -150,53 +214,22 @@
         var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
         return icon;
     }
+
+//创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
     
+    initMap();//创建和初始化地图
+
 </script>
   
-  <body>
-
-  <%@ include file="/WEB-INF/mycommon.jspf" %>
-    
-<script>
-	$(function(){
-		$(".menu li").hover(function(){
-			$(".menu li").find(".subnav").stop().slideUp();
-            $(this).find(".subnav").stop().slideDown();//.parent().siblings().find(".subnav").slideUp();
-        },function(){
-            $(".menu li").find(".subnav").stop().slideUp();//.parent().siblings().find(".subnav").slideDown();
-        });
-	});
-</script>	
-
-
-<div class="body-wrap">	
-    <div class="inner-banner clear" id="allmap"></div>
-</div>
-	  
-
-<script>
-    $(function(){
-      $(".header .menu ul li").eq(6).addClass("hover");
-    });
-</script>        
- 
-    <script type="text/javascript">
-         $(".subnav ul li").eq('${selected}').addClass("hover");
-     </script>
-
-<script type="text/javascript">
-	// 百度地图API功能
-	
-	//initMap();//创建和初始化地图
-	var map = new BMap.Map("allmap");    // 创建Map实例
-	map.centerAndZoom(new BMap.Point(118.158437, 39.654562), 16);  // 初始化地图,设置中心点坐标和地图级别
-	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
-	map.setCurrentCity("英伦美家");          // 设置地图显示的城市 此项是必须设置的
-	
-
-    
-	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-</script>
-
   </body>
 </html>
